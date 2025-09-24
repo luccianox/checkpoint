@@ -27,5 +27,5 @@ func RepeatAlpha(s string) string {
 	}else{
 		result = (append(result, ch))
 	}
-	return result
+	return string(result)
 }
