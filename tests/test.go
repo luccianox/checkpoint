@@ -1,50 +1,42 @@
-/*
-wdmatch
+/*fprime
 Instructions
-Write a program that takes two string and checks whether it is possible to write the first string with characters
-from the second string. This rewrite must respect the order in which these characters appear in the second string.
 
-If it is possible, the program displays the string followed by a newline ('\n'),
+Write a program that takes a positive int and displays its prime factors, followed by a newline ('\n').
 
-	otherwise it simply displays nothing.
+Factors must be displayed in ascending order and separated by *.
 
-If the number of arguments is different from 2, the program displays nothing.
-*/
+If the number of arguments is different from 1, if the argument is invalid,
+or if the integer does not have a prime factor, the program displays nothing.*/
+
 package main
 
 import (
+	"fmt"
 	"os"
-
-	"github.com/01-edu/z01"
+	"strconv"
 )
 
 func main() {
-
-	if len(os.Args) != 3 {
-
+	if len(os.Args) != 2 {
 		return
 	}
-	s1 := os.Args[1]
-	s2 := os.Args[2]
-
-	i := 0
-	j := 0
-
-	for i < len(s1) && j < len(s2) {
-
-		if s1[i] == s2[j] {
-
-			i++
-		}
-		j++
+	if n, err := strconv.Atoi(os.Args[1]); err == nil {
+		fprime(n)
 	}
-	if i == len(s1) {
-		for _, ch := range s1 {
+}
 
-			z01.PrintRune(ch)
-		}
-		z01.PrintRune('\n')
-
+func fprime(n int) {
+	if n <= 1 {
+		return
 	}
-
+	for i := 2; i < n; i++ {
+		for n%i == 0 {
+			fmt.Print(i)
+			n /= i
+		}
+		if i > n {
+			fmt.Print("*")
+		}
+	}
+	fmt.Println()
 }
