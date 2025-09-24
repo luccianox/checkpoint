@@ -41,6 +41,7 @@ func PrintMemory(arr [10]byte) {
 			z01.PrintRune(' ')
 		}
 	}
+	z01.PrintRune('\n')
 	// print ASCII
 	for i := 0; i < len(arr); i++ {
 		if arr[i] >= 32 && arr[i] <= 126 {
