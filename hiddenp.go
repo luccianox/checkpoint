@@ -17,7 +17,6 @@ import (
 )
 
 func main() {
-
 	if len(os.Args) != 3 {
 
 		z01.PrintRune('0')
@@ -34,15 +33,14 @@ func main() {
 
 	}
 	i := 0
-	j := 0
+	k := 0
 
-	for i < len(s1) && j < len(s2) {
+	for i < len(s1) && k < len(s2) {
 
 		if s1[i] == s2[2] {
-
 			i++
 		}
-		j++
+		k++
 	}
 	if i == len(s1) {
 		z01.PrintRune('1')
