@@ -8,29 +8,29 @@ If the int is 0 or a negative number return the original string.
 
 Expected function*/
 
-ppackage main
+package main
 
 func SaveAndMiss(arg string, num int) string {
-    if num <= 0 {
-        return arg
-    }
+	if num <= 0 {
+		return arg
+	}
 
-    runes := []rune(arg)
-    result := []rune{}
-    save := true // start with "save"
+	runes := []rune(arg)
+	result := []rune{}
+	save := true // start with "save"
 
-    for i := 0; i < len(runes); i += num {
-        end := i + num
-        if end > len(runes) {
-            end = len(runes)
-        }
+	for i := 0; i < len(runes); i += num {
+		end := i + num
+		if end > len(runes) {
+			end = len(runes)
+		}
 
-        if save {
-            result = append(result, runes[i:end]...)
-        }
+		if save {
+			result = append(result, runes[i:end]...)
+		}
 
-        save = !save // flip between save and miss
-    }
+		save = !save // flip between save and miss
+	}
 
-    return string(result)
+	return string(result)
 }
