@@ -1,8 +1,11 @@
-/*checknumber
+/*
+checknumber
 Instructions
 
 Write a function that takes a string as an argument and returns true if the string contains any number, otherwise return false.
-Expected function*/
+Expected function
+*/
+package main
 
 func CheckNumber(arg string) bool {
 
