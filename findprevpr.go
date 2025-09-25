@@ -1,10 +1,13 @@
-/*findprevprime
+/*
+findprevprime
 Instructions
 
 Write a function that returns the first prime number that is equal or inferior to the int passed as parameter.
 
 If there are no primes inferior to the int passed as parameter the function should return 0.
-Expected function*/
+Expected function
+*/
+package main
 
 func FindPrevPrime(nb int) int {
 
