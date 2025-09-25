@@ -1,42 +1,43 @@
-/*fprime
-Instructions
-
-Write a program that takes a positive int and displays its prime factors, followed by a newline ('\n').
-
-Factors must be displayed in ascending order and separated by *.
-
-If the number of arguments is different from 1, if the argument is invalid,
-or if the integer does not have a prime factor, the program displays nothing.*/
-
 package main
 
 import (
-	"fmt"
 	"os"
-	"strconv"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
-	if len(os.Args) != 2 {
-		return
-	}
-	if n, err := strconv.Atoi(os.Args[1]); err == nil {
-		fprime(n)
-	}
-}
 
-func fprime(n int) {
-	if n <= 1 {
+	if len(os.Args) != 3 {
+		z01.PrintRune('\n')
 		return
 	}
-	for i := 2; i < n; i++ {
-		for n%i == 0 {
-			fmt.Print(i)
-			n /= i
+	s1 := os.Args[1]
+	s2 := os.Args[2]
+
+	union := s1 + s2
+	result := []rune{}
+
+	// loop through union
+	for _, ch := range union {
+
+		found := false
+		// loop through result
+		for _, r := range result {
+
+			if ch == r {
+
+				found = true
+				break
+			}
 		}
-		if i > n {
-			fmt.Print("*")
+		if found == false {
+			result = append(result, ch)
 		}
 	}
-	fmt.Println()
+	for _, m := range result {
+
+		z01.PrintRune(m)
+	}
+	z01.PrintRune('\n')
 }
